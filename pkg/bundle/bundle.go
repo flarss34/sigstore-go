@@ -196,7 +196,7 @@ func (b *ProtobufBundle) TlogEntries() ([]*tlog.Entry, error) {
 }
 
 func (b *ProtobufBundle) SignatureContent() (verify.SignatureContent, error) {
-	switch content := b.Bundle.Content.(type) { //nolint:gocritic
+	switch content := b.Bundle.Content.(type) {
 	case *protobundle.Bundle_DsseEnvelope:
 		envelope, err := parseEnvelope(content.DsseEnvelope)
 		if err != nil {
